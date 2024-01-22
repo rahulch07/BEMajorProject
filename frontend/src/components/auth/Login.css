@@ -1,0 +1,9 @@
+.outContn{
+    display: flex;
+    justify-content: space-around;
+    padding: 0px 140px;
+}
+.contn{
+    border: solid 1px black;
+    width: 90%;
+}

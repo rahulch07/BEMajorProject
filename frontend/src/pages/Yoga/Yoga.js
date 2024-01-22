@@ -91,14 +91,15 @@ else if(currentType==='KneePain'){
   useEffect(() => {
     setCurrentTime(0)
     setPoseTime(0)
+    console.log("Time set to zero")
     setBestPerform(0)
   }, [currentPose])
 
   const CLASS_NO = {
-    Chair: 8,
+    Chair: 3,
     Cobra: 1,
     Dog: 2,
-    No_Pose: 3,
+    No_Pose: 15,
     Shoulderstand: 4,
     Traingle: 5,
     Tree: 11,
