@@ -6,6 +6,15 @@ from data import BodyPart
 import tensorflow as tf
 import tensorflowjs as tfjs
 
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import f1_score
+from sklearn.metrics import matthews_corrcoef
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import roc_auc_score, roc_curve
+import matplotlib.pyplot as plt
+import numpy as np
+
 tfjs_model_dir = 'model'
 
 
@@ -22,7 +31,7 @@ def load_csv(csv_path):
     return X, y, classes
 
 
-def get_center_point(landmarks, left_bodypart, right_bodypart):
+def calc_CenterPoint(landmarks, left_bodypart, right_bodypart):
     """Calculates the center point of the two given landmarks."""
     left = tf.gather(landmarks, left_bodypart.value, axis=1)
     right = tf.gather(landmarks, right_bodypart.value, axis=1)
@@ -38,17 +47,17 @@ def get_pose_size(landmarks, torso_size_multiplier=2.5):
     * Maximum distance from pose center to any pose landmark
     """
     # Hips center
-    hips_center = get_center_point(landmarks, BodyPart.LEFT_HIP, 
+    hips_center = calc_CenterPoint(landmarks, BodyPart.LEFT_HIP, 
                                  BodyPart.RIGHT_HIP)
 
     # Shoulders center
-    shoulders_center = get_center_point(landmarks, BodyPart.LEFT_SHOULDER,
+    shoulders_center = calc_CenterPoint(landmarks, BodyPart.LEFT_SHOULDER,
                                       BodyPart.RIGHT_SHOULDER)
 
     # Torso size as the minimum body size
     torso_size = tf.linalg.norm(shoulders_center - hips_center)
     # Pose center
-    pose_center_new = get_center_point(landmarks, BodyPart.LEFT_HIP, 
+    pose_center_new = calc_CenterPoint(landmarks, BodyPart.LEFT_HIP, 
                                      BodyPart.RIGHT_HIP)
     pose_center_new = tf.expand_dims(pose_center_new, axis=1)
     # Broadcast the pose center to the same size as the landmark vector to
@@ -73,7 +82,7 @@ def normalize_pose_landmarks(landmarks):
     scaling it to a constant pose size.
   """
   # Move landmarks so that the pose center becomes (0,0)
-    pose_center = get_center_point(landmarks, BodyPart.LEFT_HIP, 
+    pose_center = calc_CenterPoint(landmarks, BodyPart.LEFT_HIP, 
                                  BodyPart.RIGHT_HIP)
 
     pose_center = tf.expand_dims(pose_center, axis=1)
@@ -156,8 +165,76 @@ history = model.fit(processed_X_train, y_train,
 
 print('-----------------EVAUATION----------------')
 loss, accuracy = model.evaluate(processed_X_test, y_test)
+
 print('LOSS: ', loss)
 print("ACCURACY: ", accuracy)
+
+
+
+y_pred = model.predict(processed_X_test)
+precision = precision_score(y_test.argmax(axis=1), y_pred.argmax(axis=1), average='weighted')
+print("Precision:", precision)
+
+
+
+recall = recall_score(y_test.argmax(axis=1), y_pred.argmax(axis=1), average='weighted')
+print("Recall:", recall)
+
+
+
+f1 = f1_score(y_test.argmax(axis=1), y_pred.argmax(axis=1), average='weighted')
+print("F1 Score:", f1)
+
+
+
+mcc = matthews_corrcoef(y_test.argmax(axis=1), y_pred.argmax(axis=1))
+print("Matthews Correlation Coefficient:", mcc)
+
+
+
+cm = confusion_matrix(y_test.argmax(axis=1), y_pred.argmax(axis=1))
+print("Confusion Matrix:")
+print(cm)
+
+
+
+# Get predicted probabilities for each class
+y_probs = model.predict(processed_X_test)
+
+# Initialize variables to store ROC-AUC scores
+roc_auc_scores = []
+
+# Plot ROC curve for each class
+for i in range(len(class_names)):
+    # Create binary labels for the current class
+    y_true_class = np.asarray(y_test[:, i])
+    y_probs_class = np.asarray(y_probs[:, i])
+
+    # Calculate ROC-AUC for the current class
+    roc_auc = roc_auc_score(y_true_class, y_probs_class)
+    roc_auc_scores.append(roc_auc)
+
+    # Plot ROC curve
+    fpr, tpr, _ = roc_curve(y_true_class, y_probs_class)
+    plt.plot(fpr, tpr, label=f'Class {i} (AUC = {roc_auc:.2f})')
+
+# Plot the random guess line
+plt.plot([0, 1], [0, 1], linestyle='--', color='gray', label='Random Guess')
+
+# Set plot properties
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('ROC Curve for Each Class')
+plt.legend()
+plt.show()
+
+# Display ROC-AUC scores for each class
+for i in range(len(class_names)):
+    print(f'Class {i} ROC-AUC: {roc_auc_scores[i]:.4f}')
+
+
+
+
 
 
 tfjs.converters.save_keras_model(model, tfjs_model_dir)

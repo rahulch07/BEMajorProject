@@ -28,6 +28,8 @@ export default function SessionTypes() {
                                 //     ]
                                 // });
                                 //navigate('/mainpain');
+
+                                window.location.href='/yoga';
                             }} >Go somewhere</button>
                         </div>
                     </div>

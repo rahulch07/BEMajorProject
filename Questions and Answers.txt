@@ -1,0 +1,14 @@
+Can you provide an overview of TensorFlow MoveNet and how it is utilized for real-time tracking in YogaWise? What makes MoveNet suitable for pose estimation tasks in yoga?
+TensorFlow MoveNet is a machine learning model designed specifically for human pose estimation tasks. It utilizes deep learning techniques to detect and track key points on the human body in real-time. MoveNet is particularly suitable for pose estimation tasks in yoga due to several reasons:
+
+1. Real-time Performance: MoveNet is optimized for real-time performance, making it suitable for applications where immediate feedback is required, such as YogaWise. It can process video frames quickly, enabling seamless tracking of yoga poses as they are performed.
+
+2. Accuracy and Robustness: MoveNet has been trained on large datasets containing diverse yoga poses, which helps improve its accuracy and robustness in detecting various yoga postures. This ensures that even subtle variations in poses can be accurately recognized and tracked.
+
+3. Lightweight and Efficient: MoveNet is designed to be lightweight and efficient, making it suitable for deployment on a variety of devices, including laptops and mobile phones. This allows YogaWise to offer real-time tracking without requiring powerful hardware.
+
+4. Multi-person Support: MoveNet is capable of detecting and tracking multiple people simultaneously, which is beneficial for group yoga sessions or scenarios where multiple individuals are performing poses in the same frame.
+
+In the context of YogaWise, TensorFlow MoveNet is utilized for real-time tracking of yoga poses performed by the user. As the user stands in front of their laptop camera, MoveNet analyzes the video feed and identifies key points on the user's body to determine the pose being executed. If the detected pose matches the desired yoga pose selected by the user, a countdown timer is initiated, providing feedback to the user and encouraging them to hold the pose for a specified duration. When the user completes the pose, the countdown timer stops, and the data, including the pose information and duration held, is sent to a MongoDB database for storage.
+
+Overall, TensorFlow MoveNet enables YogaWise to offer intelligent real-time tracking of yoga poses, enhancing the user experience and providing valuable feedback to practitioners to improve their form and consistency.

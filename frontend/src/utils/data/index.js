@@ -12,7 +12,7 @@ export const poseInstructions = {
         'Hold the pose anywhere from 15 to 30 seconds, breathing easily. Release back to the floor with an exhalation.',
         'Source: Yoga Journal - https://www.yogajournal.com/poses/types/cobra-pose-2/'
     ],
-    Dog: [
+    HalfMoonPose: [
         'Come onto your hands and knees, with your hands a tiny bit in front of your shoulders and your knees directly below your hips. Spread your palms, rooting down through all four corners of your hands, and turn your toes under.',
         'Exhale and lift your knees from the floor, at first keeping your knees slightly bent and your heels lifted off the floor. Lengthen your tailbone away from the back of your pelvis, lift the sitting bones toward the ceiling, and draw your inner legs from your inner ankles up through your groins.',
         'On an exhalation, push your top thighs back and stretch your heels toward the floor. Straighten your knees without locking them.',

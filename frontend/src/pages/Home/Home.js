@@ -18,7 +18,7 @@ export default function Home() {
 
   const handleButtonClick = () => {
     //history.push('/');
-    localStorage.getItem('userName')==null  ? window.location.href='/auth'  :  window.location.href='/start';
+    localStorage.getItem('userName')==null  ? window.location.href='/auth'  :  window.location.href='/choice';
 
   };
   useEffect(() => {
