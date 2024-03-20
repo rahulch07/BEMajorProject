@@ -47,14 +47,12 @@ const navigate=useNavigate();
                     setCurrentType({
                       currentType: "BackPain",
                       poseList: [
-                        "Tree",
-                        "Chair",
-                        "Cobra",
-                        "Warrior",
-                        "Dog",
-                        "Shoulderstand",
-                        "Triangle",
                         "Crescent",
+                        "Cobre",
+                        "Sphinx",
+                        "Camel",
+                        "ExtendedPuppy",
+                        "Warrior",
                       ],
                     });
                     navigate("/keypain");
@@ -93,13 +91,9 @@ const navigate=useNavigate();
                     setCurrentType({
                       currentType: "KneePain",
                       poseList: [
-                        "Tree",
+                        "BoundAngle",
                         "Chair",
-                        "Cobra",
-                        "Warrior",
-                        "Dog",
-                        "Shoulderstand",
-                        "Traingle",
+                        "Tree",
                       ],
                     });
                     navigate("/keypain");
@@ -113,7 +107,7 @@ const navigate=useNavigate();
           
 
          
-          <div className="backpain">
+          <div className="NeckPain">
             <div
               className="card"
               style={{ width: "18rem", height: "35rem", marginRight: "2rem" }}
@@ -138,13 +132,10 @@ const navigate=useNavigate();
                     setCurrentType({
                       currentType: "NeckShoulderPain",
                       poseList: [
-                        "Tree",
-                        "Chair",
                         "Cobra",
-                        "Warrior",
-                        "Dog",
-                        "Shoulderstand",
-                        "Traingle",
+                        "Sphinx",
+                        "ShoulderStand",
+                        "ExtendedPuppy",
                       ],
                     });
                     navigate("/keypain");
@@ -158,7 +149,7 @@ const navigate=useNavigate();
           
 
           
-          <div className="backpain">
+          <div className="HipPain">
             <div
               className="card"
               style={{ width: "18rem", height: "35rem", marginRight: "2rem" }}
@@ -183,13 +174,10 @@ const navigate=useNavigate();
                     setCurrentType({
                       currentType: "HipPain",
                       poseList: [
-                        "Tree",
-                        "Chair",
-                        "Cobra",
+                        "BoundAngle",
+                        "Garland",
+                        "Triangle",
                         "Warrior",
-                        "Dog",
-                        "Shoulderstand",
-                        "Traingle",
                       ],
                     });
                     navigate("/keypain");
