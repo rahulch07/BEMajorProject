@@ -39,7 +39,7 @@ export default function Navbar() {
         {/* Left links */}
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
-            <a className="nav-link text-black " style={{fontFamily:'sans-serif', fontSize:'30px'}} href="#">
+            <a className="nav-link text-black " style={{fontFamily:'sans-serif', fontSize:'30px'}} href="/">
               Yoga
             </a>
           </li>
