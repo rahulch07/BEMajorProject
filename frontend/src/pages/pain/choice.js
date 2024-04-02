@@ -1,7 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useSetRecoilState } from 'recoil';
+import { painState } from '../../store/atom/currentpain';
 
 function Choice() {
+  const setCurrentType=useSetRecoilState(painState);
     const navigate=useNavigate();
   return (
     <div>
@@ -21,7 +24,21 @@ function Choice() {
                 of yoga for mental and spiritual well-being, start your journey
                 by clicking here.
               </p>
-              <button class="btn btn-primary" style={{ color: "black" }}>
+              <button class="btn btn-primary" style={{ color: "black" }} onClick={() => {
+                  setCurrentType({
+                    currentType: "KneePain",
+                    poseList: [
+                      "Tree",
+                      "Warrior",
+                      "Chair",
+                      "Crescent",
+                      "Sphinx",
+                      "Triangle",
+                      "Camel",
+                    ],
+                  });
+                  navigate("/keypain");
+                }}>
                 Go somewhere
               </button>
             </div>
@@ -74,7 +91,7 @@ function Choice() {
                 class="btn btn-primary"
                 style={{ color: "black" }}
                 onClick={() => {
-                  navigate("/start");
+                  navigate("/yoga");
                 }}
               >
                 Go somewhere

@@ -53,6 +53,18 @@ export const poseInstructions = {
         'To maintain your balance in this pose, keep your hips low, level, and in line with your legs.',
         'Avoid practicing Crescent Lunge if you have any injuries to your knees, hips, lower back, quads, or groin muscles. If you are working on your balance, you may consider practicing this pose with a chair or a wall nearby for support.',
         'Source: https://blog.alomoves.com/movement/pose-breakdown-how-to-do-crescent-lunge'
+    ],
+    Sphinx: [
+        'Flow into the shape of the moon in this chest-opening pose known as Crescent Lunge, or Ashta Chandrasana. You’ll find it provides a deep stretch in the hip flexors, quads, and groin muscles as well as a slight backbend. ',
+        'To maintain your balance in this pose, keep your hips low, level, and in line with your legs.',
+        'Avoid practicing Crescent Lunge if you have any injuries to your knees, hips, lower back, quads, or groin muscles. If you are working on your balance, you may consider practicing this pose with a chair or a wall nearby for support.',
+        'Source: https://blog.alomoves.com/movement/pose-breakdown-how-to-do-crescent-lunge'
+    ],
+    Camel: [
+        'Flow into the shape of the moon in this chest-opening pose known as Crescent Lunge, or Ashta Chandrasana. You’ll find it provides a deep stretch in the hip flexors, quads, and groin muscles as well as a slight backbend. ',
+        'To maintain your balance in this pose, keep your hips low, level, and in line with your legs.',
+        'Avoid practicing Crescent Lunge if you have any injuries to your knees, hips, lower back, quads, or groin muscles. If you are working on your balance, you may consider practicing this pose with a chair or a wall nearby for support.',
+        'Source: https://blog.alomoves.com/movement/pose-breakdown-how-to-do-crescent-lunge'
     ]
     
 }

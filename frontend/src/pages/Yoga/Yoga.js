@@ -43,34 +43,31 @@ function Yoga({currPose}) {
 
   let poseList
 let BackPain = [
-  'Tree', 'Chair', 'Cobra', 'Warrior', 'Dog',
-  'Shoulderstand', 'Traingle', 'Crescent'
+  "Tree",
+ "Crescent",
+ "Sphinx",
 ]
 
 let NeckShoulderPain = [
-  'Tree', 'Chair', 'Cobra', 'Warrior', 'Dog',
-  'Shoulderstand', 'Traingle'
+  "Triangle",
+  "Camel",
+  "Sphinx",
 ]
 
-let HipPain = [
-  'Tree', 'Chair', 'Cobra', 'Warrior', 'Dog',
-  'Shoulderstand', 'Traingle'
-]
+
 let KneePain = [
-  'Tree', 'Chair', 'Cobra', 'Warrior', 'Dog',
-  'Shoulderstand', 'Triangle', 'Crescent',
+  "Camel",
+  "Warrior",
+  "Chair",
 ]
 let typeList = [
-  'BackPain', 'NeckShoulderPain', 'HipPain', 'KneePain']
+  'BackPain', 'NeckShoulderPain', 'KneePain']
 
 if(currentType==='BackPain'){
   poseList = BackPain
 }
 else if(currentType==='NeckShoulderPain'){
   poseList = NeckShoulderPain
-}
-else if(currentType==='HipPain'){
-  poseList = HipPain
 }
 else if(currentType==='KneePain'){
   poseList = KneePain
@@ -108,15 +105,21 @@ else if(currentType==='KneePain'){
   }, [currentPose, poseTime, startingTime, bestPerform]);
 
   const CLASS_NO = {
-    Chair: 3,
-    Cobra: 1,
-    Dog: 2,
-    No_Pose: 15,
-    Shoulderstand: 4,
-    Traingle: 5,
-    Tree: 11,
-    Warrior: 7,
-    Crescent: 0,
+    Crescent:0,
+    'half moon pose':1,
+    'bound angle pose':2,
+     Chair:3,
+     Cobra:4,
+    'dog':5,
+    'garland pose':6,
+    'no pose':7,
+     Sphinx:8,
+    'shoulder_stand':9,
+     Triangle:10,
+     Tree:11,
+     Camel:12,
+     ExtendedPuppy:13,
+     Warrior:14,
 
   }
 

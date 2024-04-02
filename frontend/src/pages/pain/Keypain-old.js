@@ -17,23 +17,23 @@ let interval;
 const countAudio = new Audio(count);
 let flag = false;
 
-function Keypain() {
+function KeypainOld() {
   const pain = useRecoilValue(painState);
   const pose = useRecoilValue(currentposeState);
   const setcurrentpose = useSetRecoilState(currentposeState);
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
   const [startingTime, setStartingTime] = useState(0);
+
   const [currentTime, setCurrentTime] = useState(0);
   const [poseTime, setPoseTime] = useState(0);
   const [isStartPose, setIsStartPose] = useState(false);
   const [isPoseCorrect, setisPoseCorrect] = useState(false);
   const [currentposeIndex, setcurrentposeIndex] = useState(0);
   let poseList = pain.poseList;
-  //let currentpose=pose.currentPose;
-  let currentpose = poseList[currentposeIndex];
-  console.log(poseList);
-  console.log(currentpose);
+  let currentpose=pose.currentPose;
+
+
   const startNextPose = () => {
     setisPoseCorrect(false);
     setPoseTime(0);
@@ -44,7 +44,7 @@ function Keypain() {
   };
 
   useEffect(() => {
-    if (isPoseCorrect && currentposeIndex <= poseList.length - 1) {
+    if (isPoseCorrect && currentposeIndex < poseList.length - 1) {
         countAudio.pause();
         countAudio.currentTime = 0;
       startNextPose();
@@ -52,39 +52,37 @@ function Keypain() {
   }, [isPoseCorrect, currentposeIndex]);
 
   useEffect(() => {
-    let timeDiff = (currentTime - startingTime) / 1000;
+    const timeDiff = (currentTime - startingTime) / 1000;
     if (flag) {
-      console.log(currentTime,"-",startingTime)
       setPoseTime(timeDiff);
-      if (timeDiff >= 15) {
-        // setcurrentpose({
-        //     currentPose:poseList[currentposeIndex + 1]});
+      if (timeDiff >= 5) {
+        setcurrentpose({
+            currentPose:poseList[currentposeIndex + 1]});
         setcurrentposeIndex((prev) => {
           return prev + 1;
         });
         stopPose();
         setisPoseCorrect(true);
-        
       }
     }
   }, [currentTime]);
 
   const CLASS_NO = {
-    Crescent:0,
+    'crescent pose':0,
     'half moon pose':1,
     'bound angle pose':2,
-     Chair:3,
-     Cobra:4,
+    'chair':3,
+    'cobra':4,
     'dog':5,
     'garland pose':6,
     'no pose':7,
-     Sphinx:8,
+    'sphinx':8,
     'shoulder_stand':9,
-     Triangle:10,
-     Tree:11,
-     Camel:12,
-     ExtendedPuppy:13,
-     Warrior:14,
+    'triangle':10,
+    'tree':11,
+    'camel pose':12,
+    'extended puppy pose':13,
+    'warrior':14,
   };
 
   function calc_CenterPoint(landmarks, left_bodypart, right_bodypart) {
@@ -157,7 +155,7 @@ function Keypain() {
     const poseClassifier = await tf.loadLayersModel(
       "http://localhost:5000/model"
     );
-    
+
     countAudio.loop = true;
     interval = setInterval(() => {
       detectPose(detector, poseClassifier, countAudio);
@@ -173,12 +171,10 @@ function Keypain() {
       let notDetected = 0;
       const video = webcamRef.current.video;
       const pose = await detector.estimatePoses(video);
-      //console.log(pose);
       const ctx = canvasRef.current.getContext("2d");
       ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
       try {
         const keypoints = pose[0].keypoints;
-        //console.log(keypoints)
         let input = keypoints.map((keypoint) => {
           if (keypoint.score > 0.4) {
             if (
@@ -186,7 +182,7 @@ function Keypain() {
             ) {
               drawPoint(ctx, keypoint.x, keypoint.y, 8, "rgb(255,255,255)");
               let connections = keypointConnections[keypoint.name];
-              
+
               try {
                 connections.forEach((connection) => {
                   let conName = connection.toUpperCase();
@@ -211,17 +207,14 @@ function Keypain() {
           skeletonColor = "rgb(255,255,255)";
           return;
         }
-        
+
         const processedInput = landmarks_embedding(input);
         const classification = poseClassifier.predict(processedInput);
 
         classification.array().then((data) => {
           console.log("classNo " + currentpose);
           const classNo = CLASS_NO[currentpose];
-          //console.log(classNo);
-          //console.log(data[0])
-          //console.log(data[0][classNo])
-          if (data[0][classNo] > 0.05) {
+          if (data[0][classNo] > 0.97) {
             if (!flag) {
               countAudio.play();
               setStartingTime(new Date(Date()).getTime());
@@ -305,4 +298,4 @@ function Keypain() {
   );
 }
 
-export default Keypain;
+export default KeypainOld;
