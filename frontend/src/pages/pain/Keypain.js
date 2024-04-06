@@ -76,7 +76,7 @@ function Keypain() {
      Chair:3,
      Cobra:4,
     'dog':5,
-    'garland pose':6,
+     'Garland' :6,
     'no pose':7,
      Sphinx:8,
     'shoulder_stand':9,
@@ -250,8 +250,8 @@ function Keypain() {
   function stopPose() {
     setIsStartPose(false);
     clearInterval(interval);
-  }
-
+  } 
+  
   if (isStartPose) {
     return (
       <div className="yoga-container" style={{position: 'relative', top:'20px'}}>

@@ -18,6 +18,7 @@ import History from './pages/History/History'
 import Pain from './pages/pain/Rootpain'
 import Keypain from './pages/pain/Keypain'
 import Choice from './pages/pain/choice'
+import Footer from './pages/Footer/footer'
 
 //import Login from './components/Login'
 
@@ -41,6 +42,7 @@ export default function App() {
         <Route path='/choice' element={<Choice />} />
       </Routes>
     </Router>
+    <Footer/>
     </RecoilRoot>
     </div>
   )

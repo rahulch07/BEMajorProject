@@ -89,9 +89,9 @@ const navigate=useNavigate();
                     setCurrentType({
                       currentType: "KneePain",
                       poseList: [
-                         "Camel",
                         "Warrior",
                         "Chair",
+                        "Camel",
                       ],
                     });
                     navigate("/keypain");
