@@ -3,9 +3,11 @@ import React, { useState} from 'react';
 import api from '../services/api';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { gState } from '../../store/gStates';
+import { useNavigate } from "react-router-dom";
 import './Login.css'
 
 const Login = ({setUserId}) => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -36,6 +38,8 @@ const Login = ({setUserId}) => {
       console.log(response.data.userId);
       console.log(response.data.role);
       setUName({uname: username});
+
+    navigate("/choice");
       //const name = useRecoilValue(gState);
       console.log(nnn.uname);
       //console.log(name);
@@ -94,30 +98,46 @@ const Login = ({setUserId}) => {
 
   return (
     <div>
-      <div className='outContn'>
-      <div className='container contn' >
-      <h2>Login</h2>
-      <label>Username:</label>
-      <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-      <br />
-      <label>Password:</label>
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <br />
-      <button onClick={handleLogin}>Login</button>
-      <br/>
-      <button onClick={handleLogout}>Logout</button>
-      </div>
+      <div className="outContn">
+        <div className="container contn">
+          <h2>Login</h2>
+          <label>Username:</label>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <br />
+          <label>Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <br />
+            <button onClick={handleLogin}>Login</button>
+          <br />
+          <button onClick={handleLogout}>Logout</button>
+        </div>
 
-      <div className='container contn'>
-      <h2>signUp</h2>
-      <label>Username:</label>
-      <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-      <br />
-      <label>Password:</label>
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <br />
-      <button onClick={handleSignup}>Create Account</button>
-      </div>
+        <div className="container contn">
+          <h2>signUp</h2>
+          <label>Username:</label>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <br />
+          <label>Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <br />
+          <button onClick={handleSignup}>Create Account</button>
+        </div>
       </div>
     </div>
   );
