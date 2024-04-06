@@ -1,0 +1,175 @@
+/* @keyframes fade-inout {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+} */
+
+/* support for opera */
+/* @-o-keyframes fade-inout {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+} */
+
+/* support for mozila */
+/* @-moz-keyframes fade-inout {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+} */
+
+/* support for safari and chrome */
+/* @-webkit-keyframes fade-inout {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+} */
+
+/* .fade-in-fade-out {
+    -webkit-animation: fade-inout 2s infinite alternate;
+    -moz-animation: fade-inout 2s infinite alternate;
+    -o-animation: fade-inout 2s infinite alternate;
+    animation: fade-inout 2s infinite alternate;
+} */
+
+@keyframes fade-inout {
+
+    /* Fade in (0% to 100%) */
+    0%,
+    50% {
+        opacity: 0;
+    }
+
+    70% {
+        /* Adjust slightly to account for gap */
+        opacity: 1;
+    }
+
+    /* Fade out (100% to 125%) */
+    120% {
+        opacity: 1;
+    }
+
+    125% {
+        /* Adjust slightly to account for gap */
+        opacity: 0;
+    }
+}
+
+/* Apply the animation to the element */
+.startpose-container {
+    position: absolute;
+    top: 23.5rem;
+    left: 40rem;
+    z-index: 1;
+    opacity: 0;
+   cursor: pointer;
+     
+    /* Initially invisible for redundancy */
+    animation: fade-inout 4s ease-in-out infinite ;
+    /* animation-delay: 2s; */
+    /* Total animation duration: 11s */
+}
+
+/* infobutton css */
+
+.popup {
+    position: absolute;
+    right: 40%;
+    top: 13%;
+    display: inline-block;
+    cursor: pointer;
+    
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    /* overflow-y: auto; */
+    height: 400px;
+    visibility: hidden;
+    width: 500px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 19px;
+    position: absolute;
+    z-index: 1;
+    top: 112%;
+    left: 90%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+/* .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+} */
+
+.popup .popuptext::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    z-index: 2;
+    /* Move the element 100% above its closest positioned ancestor */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 11px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+    /* Top border gets color */
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

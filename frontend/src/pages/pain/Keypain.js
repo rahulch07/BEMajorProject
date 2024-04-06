@@ -9,7 +9,11 @@ import { POINTS, keypointConnections } from "../../utils/data";
 import { drawPoint, drawSegment } from "../../utils/helper";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { painState } from "../../store/atom/currentpain";
-import  {currentposeState }from "../../store/atom/currentpose";
+import Startpose from "./Startpose";
+
+import "./Startpose.css";
+import { currentposeState } from "../../store/atom/currentpose";
+import Infopopup from "./Infopopup";
 let skeletonColor = "rgb(255,255,255)";
 
 let interval;
@@ -45,8 +49,8 @@ function Keypain() {
 
   useEffect(() => {
     if (isPoseCorrect && currentposeIndex <= poseList.length - 1) {
-        countAudio.pause();
-        countAudio.currentTime = 0;
+      countAudio.pause();
+      countAudio.currentTime = 0;
       startNextPose();
     }
   }, [isPoseCorrect, currentposeIndex]);
@@ -54,37 +58,34 @@ function Keypain() {
   useEffect(() => {
     let timeDiff = (currentTime - startingTime) / 1000;
     if (flag) {
-      console.log(currentTime,"-",startingTime)
+      console.log(currentTime, "-", startingTime);
       setPoseTime(timeDiff);
       if (timeDiff >= 15) {
-        // setcurrentpose({
-        //     currentPose:poseList[currentposeIndex + 1]});
         setcurrentposeIndex((prev) => {
           return prev + 1;
         });
         stopPose();
         setisPoseCorrect(true);
-        
       }
     }
   }, [currentTime]);
 
   const CLASS_NO = {
-    Crescent:0,
-    'half moon pose':1,
-    'bound angle pose':2,
-     Chair:3,
-     Cobra:4,
-    'dog':5,
-    'garland pose':6,
-    'no pose':7,
-     Sphinx:8,
-    'shoulder_stand':9,
-     Triangle:10,
-     Tree:11,
-     Camel:12,
-     ExtendedPuppy:13,
-     Warrior:14,
+    Crescent: 0,
+    "half moon pose": 1,
+    "bound angle pose": 2,
+    Chair: 3,
+    Cobra: 4,
+    dog: 5,
+    "garland pose": 6,
+    "no pose": 7,
+    Sphinx: 8,
+    shoulder_stand: 9,
+    Triangle: 10,
+    Tree: 11,
+    Camel: 12,
+    ExtendedPuppy: 13,
+    Warrior: 14,
   };
 
   function calc_CenterPoint(landmarks, left_bodypart, right_bodypart) {
@@ -155,9 +156,9 @@ function Keypain() {
       detectorConfig
     );
     const poseClassifier = await tf.loadLayersModel(
-      "http://localhost:5000/model"
+      "http://localhost:5001/model"
     );
-    
+
     countAudio.loop = true;
     interval = setInterval(() => {
       detectPose(detector, poseClassifier, countAudio);
@@ -186,7 +187,7 @@ function Keypain() {
             ) {
               drawPoint(ctx, keypoint.x, keypoint.y, 8, "rgb(255,255,255)");
               let connections = keypointConnections[keypoint.name];
-              
+
               try {
                 connections.forEach((connection) => {
                   let conName = connection.toUpperCase();
@@ -211,7 +212,7 @@ function Keypain() {
           skeletonColor = "rgb(255,255,255)";
           return;
         }
-        
+
         const processedInput = landmarks_embedding(input);
         const classification = poseClassifier.predict(processedInput);
 
@@ -292,15 +293,21 @@ function Keypain() {
         <button onClick={stopPose} className="secondary-btn">
           Stop Pose
         </button>
+        <div>
+          <Infopopup currentpose={currentpose} />
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="yoga-container">
-      <button onClick={startYoga} className="secondary-btn">
-        Start Pose
-      </button>
+    <div
+      className="yoga-container"
+      style={{ display: "flex", justifyContent: "center" }}
+      onClick={startYoga}
+    >
+      <Startpose />
+      <i class="bi bi-info-circle"></i>
     </div>
   );
 }

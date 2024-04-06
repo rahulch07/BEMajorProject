@@ -25,7 +25,7 @@ export default function App() {
   return (
     <div>
       <RecoilRoot>
-    {/* <Navbar/> */}
+    <Navbar/>
     <Router>
       <Routes>
         <Route path='/' element={<Home />}/>
