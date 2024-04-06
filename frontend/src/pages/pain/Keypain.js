@@ -254,7 +254,7 @@ function Keypain() {
 
   if (isStartPose) {
     return (
-      <div className="yoga-container">
+      <div className="yoga-container" style={{position: 'relative', top:'20px'}}>
         <div className="performance-container">
           <div className="pose-performance">
             <h4>Pose Time: {poseTime} s</h4>

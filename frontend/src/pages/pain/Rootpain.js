@@ -20,18 +20,18 @@ const navigate=useNavigate();
             justifyContent: "center",
             flexWrap: "wrap",
             marginTop: "4rem",
-          }}
-        >
+          }}>
          
           <div className="backpain">
             <div
               className="card"
-              style={{ width: "18rem", height: "35rem", marginRight: "2rem" }}
+              style={{ width: "20rem", height: "35rem", marginRight: "2rem" }}
             >
               <img
                 src="https://www.materprivate.ie/images/default-source/medical-conditions/back-pain.jpg?sfvrsn=61827d16_1"
                 className="card-img-top"
                 alt="..."
+                style={{ width: "20rem", height: "15rem" }}
               />
               <div className="card-body">
                 <h5 className="card-title">Back Pain</h5>
@@ -42,7 +42,7 @@ const navigate=useNavigate();
                 </p>
                 <button
                   className="btn btn-primary"
-                  style={{ color: "black" }}
+                  style={{ color: "black" ,marginTop:"2.7rem"}}
                   onClick={() => {
                     setCurrentType({
                       currentType: "BackPain",
@@ -55,7 +55,7 @@ const navigate=useNavigate();
                     navigate("/keypain");
                   }}
                 >
-                  Go somewhere
+                  Select
                 </button>
               </div>
             </div>
@@ -66,12 +66,13 @@ const navigate=useNavigate();
           <div className="Kneepain">
             <div
               className="card"
-              style={{ width: "18rem", height: "35rem", marginRight: "2rem" }}
+              style={{ width: "20rem", height: "35rem", marginRight: "2rem" }}
             >
               <img
                 src="https://www.advancedsportsandspine.com/wp-content/uploads/2020/03/Causes-of-knee-pain.png"
                 className="card-img-top"
                 alt="..."
+                style={{ width: "20rem", height: "15rem" }}
               />
               <div className="card-body">
                 <h5 className="card-title">Knee Pain</h5>
@@ -83,7 +84,7 @@ const navigate=useNavigate();
                 </p>
                 <button
                   className="btn btn-primary"
-                  style={{ color: "black" }}
+                  style={{ color: "black" , marginTop:"1.3rem"}}
                   onClick={() => {
                     setCurrentType({
                       currentType: "KneePain",
@@ -96,7 +97,7 @@ const navigate=useNavigate();
                     navigate("/keypain");
                   }}
                 >
-                  Go somewhere
+                  Select
                 </button>
               </div>
             </div>
@@ -107,12 +108,13 @@ const navigate=useNavigate();
           <div className="NeckPain">
             <div
               className="card"
-              style={{ width: "18rem", height: "35rem", marginRight: "2rem" }}
+              style={{ width: "20rem", height: "35rem", marginRight: "2rem" }}
             >
               <img
                 src="https://prairiespine.com/wp-content/uploads/2019/10/Neck-and-Shoulder-Pain-1.jpg"
                 className="card-img-top"
                 alt="..."
+                style={{ width: "20rem", height: "15rem" }}
               />
               <div className="card-body">
                 <h5 className="card-title">Shoulder Neck Pain</h5>
@@ -124,7 +126,7 @@ const navigate=useNavigate();
                 </p>
                 <button
                   className="btn btn-primary"
-                  style={{ color: "black" }}
+                  style={{ color: "black" , marginTop:""}}
                   onClick={() => {
                     setCurrentType({
                       currentType: "NeckShoulderPain",
@@ -137,7 +139,7 @@ const navigate=useNavigate();
                     navigate("/keypain");
                   }}
                 >
-                  Go somewhere
+                  Select
                 </button>
               </div>
             </div>

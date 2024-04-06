@@ -8,13 +8,21 @@ function Choice() {
     const navigate=useNavigate();
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <div class="card1" style={{ margin: "2rem" }}>
-          <div class="card" style={{ width: "25rem", height: "40rem" }}>
+
+<h1 style={{ marginTop: "2rem", textAlign: "center" }}>
+          Select Type of Session
+        </h1>
+       
+
+
+      <div id="card-container" className="container-fluid" style={{ display: "flex", justifyContent: "space-around" }}>
+        <div class="card1" style={{ margin: "" }}>
+          <div class="card" style={{ width: "20rem", height: "35rem" }}>
             <img
               src="https://images.thequint.com/thequint%2F2022-07%2Fe2305be9-e9da-491e-9955-cebaba47b7f2%2Fwarrior_pose_from_yoga_picture_id498058082.jpg"
               class="card-img-top"
               alt="..."
+              style={{ width: "20rem", height: "15rem" }}
             />
             <div class="card-body">
               <h5 class="card-title">Session</h5>
@@ -39,18 +47,19 @@ function Choice() {
                   });
                   navigate("/keypain");
                 }}>
-                Go somewhere
+                Select
               </button>
             </div>
           </div>
         </div>
 
-        <div class="card2" style={{ margin: "2rem" }}>
-          <div class="card" style={{ width: " 25rem", height: "40rem" }}>
+        <div class="card2" style={{ margin: "" }}>
+          <div class="card" style={{ width: " 20rem", height: "35rem" }}>
             <img
               src="https://images.onlymyhealth.com/imported/images/2021/April/15_Apr_2021/ospteopenia_Large.jpg"
               class="card-img-top"
               alt="..."
+              style={{ width: "20rem", height: "15rem" }}
             />
             <div class="card-body">
               <h5 class="card-title">Pain</h5>
@@ -61,24 +70,25 @@ function Choice() {
               </p>
               <button
                 class="btn btn-primary"
-                style={{ color: "black" }}
+                style={{ color: "black" , marginTop:"3rem"}}
                 onClick={() => {
                   navigate("/pain");
                 }}
               >
-                Go somewhere
+                Select
               </button>
             </div>
           </div>
         </div>
 
         {/* col3 */}
-        <div class="card2" style={{ margin: "2rem" }}>
-          <div class="card" style={{ width: " 25rem", height: "40rem" }}>
+        <div class="card3" style={{ margin: "" }}>
+          <div class="card" style={{ width: " 20rem", height: "35rem" }}>
             <img
               src="https://static.vecteezy.com/system/resources/previews/008/251/857/original/woman-in-yoga-poses-illustration-in-cartoon-style-vector.jpg"
               class="card-img-top"
               alt="..."
+              style={{ width: "20rem", height: "15rem" }}
             />
             <div class="card-body">
               <h5 class="card-title">Pose Mastery</h5>
@@ -89,12 +99,12 @@ function Choice() {
               </p>
               <button
                 class="btn btn-primary"
-                style={{ color: "black" }}
+                style={{ color: "black", marginTop:"1.5rem"}}
                 onClick={() => {
                   navigate("/yoga");
                 }}
               >
-                Go somewhere
+                Select
               </button>
             </div>
           </div>
