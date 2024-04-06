@@ -153,7 +153,7 @@ function KeypainOld() {
       detectorConfig
     );
     const poseClassifier = await tf.loadLayersModel(
-      "http://localhost:5000/model"
+      "http://localhost:5001/model"
     );
 
     countAudio.loop = true;

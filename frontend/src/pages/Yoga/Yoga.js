@@ -190,7 +190,7 @@ else if(currentType==='KneePain'){
   const runMovenet = async () => {
     const detectorConfig = {modelType: poseDetection.movenet.modelType.SINGLEPOSE_THUNDER};
     const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet, detectorConfig);
-    const poseClassifier = await  tf.loadLayersModel('http://localhost:5000/model')
+    const poseClassifier = await  tf.loadLayersModel('http://localhost:5001/model')
     // const response = await fetch('http://localhost:5000/model');
     //   console.log(response);
 

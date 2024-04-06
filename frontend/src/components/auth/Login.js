@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import api from "../services/api";
 import { useSetRecoilState, useRecoilValue } from "recoil";
 import { gState } from "../../store/gStates";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import loginImg from '../../utils/pose_images/login.jpg'
 import signupImg from '../../utils/pose_images/signup.jpg'
 
 const Login = ({ setUserId }) => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [authState, setAuthState] = useState("login");
@@ -39,6 +41,8 @@ const Login = ({ setUserId }) => {
         console.log(response.data.userId);
         console.log(response.data.role);
         setUName({ uname: username });
+
+    navigate("/choice");
         //const name = useRecoilValue(gState);
         console.log(nnn.uname);
         //console.log(name);

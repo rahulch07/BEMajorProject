@@ -1,7 +1,7 @@
 // frontend/src/services/api.js
 import axios from 'axios';
 const instance = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'http://localhost:5001',
 });
 
 // Add a request interceptor to include the access token in the headers

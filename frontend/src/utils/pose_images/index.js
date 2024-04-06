@@ -1,7 +1,7 @@
 import chair from './chair.jpg'
-import cobra from './cobra.jpg'
+import cobra from './cobra.png'
 import dog from './dog.jpg'
-import halfmoonpose from './halfmoonpose.png'
+import halfmoonpose from './halfmoon.png'
 import tree from './tree.jpeg'
 import warrior from './warrior.jpg'
 import traingle from './traingle.jpg'
@@ -10,8 +10,8 @@ import crescent from './crescent-lunge.jpg'
 import boundanglepose from "./bound-angle-pose.png"
 import garlandpose from "./garlandpose.jpg"
 import nopose from "./nopose.jpg"
-import sphinxpose from "./sphinxpose.jpg"
-import camelpose from "./camelpose.png"
+import sphinxpose from "./sphinx.jpeg"
+import camelpose from "./camelpose.jpeg"
 import extendedpuppypose from "./extendedpuppypose.jpg"
 
 export const poseImages = {
