@@ -71,21 +71,21 @@ function Keypain() {
   }, [currentTime]);
 
   const CLASS_NO = {
-    Crescent: 0,
-    "half moon pose": 1,
-    "bound angle pose": 2,
-    Chair: 3,
-    Cobra: 4,
-    dog: 5,
-    "garland pose": 6,
-    "no pose": 7,
-    Sphinx: 8,
-    shoulder_stand: 9,
-    Triangle: 10,
-    Tree: 11,
-    Camel: 12,
-    ExtendedPuppy: 13,
-    Warrior: 14,
+    Crescent:0,
+    'half moon pose':1,
+    'bound angle pose':2,
+     Chair:3,
+     Cobra:4,
+    'dog':5,
+     'Garland' :6,
+    'no pose':7,
+     Sphinx:8,
+    'shoulder_stand':9,
+     Triangle:10,
+     Tree:11,
+     Camel:12,
+     ExtendedPuppy:13,
+     Warrior:14,
   };
 
   function calc_CenterPoint(landmarks, left_bodypart, right_bodypart) {
