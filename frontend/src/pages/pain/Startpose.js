@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Lottie from "react-lottie";
-import animationData from "../../utils/images/startposeanimation.json";
+import animationData from "../../utils/images/startpose.json";
 import "./Startpose.css";
 
 const Startpose = () => {
@@ -19,11 +19,14 @@ const Startpose = () => {
       className="lottie-container"
       style={{ width: "30rem", height: "25rem" }}
     >
-      <div
-        className="startpose-container"
-        style={{ transform: "rotate(-28deg)", fontSize: "50px" }}
-      >
-        Start Pose
+      <div className="startbtn">
+        <a href="/choice" class="cta">
+          <span>BEGIN</span>
+          <svg width="13px" height="10px" viewBox="0 0 13 10">
+            <path d="M1,5 L11,5"></path>
+            <polyline points="8 1 12 5 8 9"></polyline>
+          </svg>
+        </a>
       </div>
 
       <Lottie

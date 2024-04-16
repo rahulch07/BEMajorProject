@@ -1,91 +1,4 @@
-/* @keyframes fade-inout {
-    0% {
-        opacity: 1;
-    }
 
-    100% {
-        opacity: 0;
-    }
-} */
-
-/* support for opera */
-/* @-o-keyframes fade-inout {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-} */
-
-/* support for mozila */
-/* @-moz-keyframes fade-inout {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-} */
-
-/* support for safari and chrome */
-/* @-webkit-keyframes fade-inout {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-} */
-
-/* .fade-in-fade-out {
-    -webkit-animation: fade-inout 2s infinite alternate;
-    -moz-animation: fade-inout 2s infinite alternate;
-    -o-animation: fade-inout 2s infinite alternate;
-    animation: fade-inout 2s infinite alternate;
-} */
-
-@keyframes fade-inout {
-
-    /* Fade in (0% to 100%) */
-    0%,
-    50% {
-        opacity: 0;
-    }
-
-    70% {
-        /* Adjust slightly to account for gap */
-        opacity: 1;
-    }
-
-    /* Fade out (100% to 125%) */
-    120% {
-        opacity: 1;
-    }
-
-    125% {
-        /* Adjust slightly to account for gap */
-        opacity: 0;
-    }
-}
-
-/* Apply the animation to the element */
-.startpose-container {
-    position: absolute;
-    top: 23.5rem;
-    left: 40rem;
-    z-index: 1;
-    opacity: 0;
-   cursor: pointer;
-     
-    /* Initially invisible for redundancy */
-    animation: fade-inout 4s ease-in-out infinite ;
-    /* animation-delay: 2s; */
-    /* Total animation duration: 11s */
-}
 
 /* infobutton css */
 
@@ -173,3 +86,76 @@
         opacity: 1;
     }
 }
+
+
+a {
+    text-decoration: none;
+    color: white;
+
+}
+
+.cta {
+    position: relative;
+    margin: auto;
+    padding: 19px 22px;
+    transition: all .2s ease;
+}
+
+.cta:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 28px;
+    background: rgba(255, 234, 0, 0.5);
+    width: 56px;
+    height: 56px;
+    transition: all .3s ease;
+}
+
+.cta span {
+    position: relative;
+    font-size: 21px;
+    line-height: 18px;
+    font-weight: 900;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+
+
+.cta svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #111;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+}
+
+.cta:hover:before {
+    width: 100%;
+    background: rgba(255, 234, 0, 1);
+}
+
+.cta:hover svg {
+    transform: translateX(0);
+}
+
+.cta:active {
+    transform: scale(.96);
+}
+
+.startbtn {
+    position: absolute;
+    top: 40rem;
+    left: 37rem;
+
+}
+
