@@ -1,40 +1,125 @@
 import React from 'react'
+import image from "../../utils/images/missionimg.jpg"
+import StackIcon from "tech-stack-icons";
+import sessions from "../../utils/images/sessions.jpg"
+import { AiFillGithub } from "react-icons/ai";
+import { BiLogoLinkedin } from "react-icons/bi";
+import { BsInstagram } from "react-icons/bs";
+import { BiLogoGmail } from "react-icons/bi";
+import './About.css';
+const About = () => {
+   
 
-import './About.css'
-
-export default function About() {
-    return (
-        <div className="about-container">
-            <h1 className="about-heading">About</h1>
-            <div className="about-main">
-                <p className="about-content">
-                    This is an realtime AI based Yoga Trainer which detects your pose how well you are doing.
-                    I created this as a personal project, and I have also deployed this project
-                    so people can use it and mainly the developers can who are learning AI can learn 
-                    from this project and make their own AI or they can also improve in this project.
-                    This is an open source project, The code is available on the GitHub - <a href="https://github.com/harshbhatt7585/YogaIntelliJ">https://github.com/harshbhatt7585/YogaIntelliJ</a>
-                    
-                    This AI first predicts keypoints or coordinates of different parts of the body(basically where
-                    they are present in an image) and then it use another classification model to classify the poses if 
-                    someone is doing a pose and if AI detects that pose more than 95% probability and then it will notify you are 
-                    doing correctly(by making virtual skeleton green). I have used Tensorflow pretrained Movenet Model To Predict the 
-                    Keypoints and building a neural network top of that which uses these coordinates and classify a yoga pose.
-
-                    I have trained the model in python because of tensorflowJS we can leverage the support of browser so I converted 
-                    the keras/tensorflow model to tensorflowJS.
-                </p>
-                <div className="developer-info">
-                    <h4>About Developer</h4>
-                    <p className="about-content">I am Harsh, I am Full Stack Developer, AI Enthusiastic, Content Creator, Tutor,
-                        I love to work with technology and love to share on my youtube channel, 
-                        I hope this project will help you. 
-                    </p>
-                    <h4>Contact</h4>
-                    <a href="https://www.instagram.com/codedharsh75/"><p className="about-content">Instagram</p></a>
-                    <a href="https://www.youtube.com/channel/UCiD7kslR7lKSaPGSQ-heOWg"><p  className="about-content">Youtube</p></a>
-                    <a href="https://github.com/harshbhatt7585"><p  className="about-content">GitHub</p></a>
-                </div>
-            </div>
+  return (
+    <div className="missionmain">
+      <div className="missionpage">
+        <div className="missiontext">
+          <span className="headers" id="test">
+            "Our mission is to empower individuals on their journey to holistic
+            well-being through the fusion of technology and yoga philosophy.
+          </span>
+          <span className="headers" id="test">
+            By leveraging cutting-edge pose detection algorithms, our app
+            provides users with real-time pose analysis, enabling them to deepen
+            their yoga practice anywhere, anytime."
+          </span>
         </div>
-    )
+        <div className="missionimg">
+          <img src={image} alt="" />
+        </div>
+      </div>
+
+      <div className="techstackmain">
+        <div className="techstacktext"> TECH STACK</div>
+        <div className="techstackicons">
+          <div className="iconsdiv">
+            <StackIcon className="icon" name="reactjs" />
+            <StackIcon className="icon" name="nodejs" />
+            <StackIcon className="icon" name="html5" />
+            <StackIcon className="icon" name="css3" />
+            <StackIcon className="icon" name="materialui" />
+            <StackIcon className="icon" name="mongodb" />
+            <StackIcon className="icon" name="python" />
+          </div>
+        </div>
+      </div>
+
+      <div className="teammain">
+        <div className="techstacktext">TEAM</div>
+        <div>
+          <div className="teaminfomain">
+            <div className="teaminfo" id="hello">
+              <img src={sessions} alt="" />
+              <div className="teaminfoname">AMEY PARLE</div>
+              <div className="teaminfolinks">
+                <div className="infoiconcircle">
+                  <AiFillGithub className="infoicon" />
+                </div>
+                <div className="infoiconcircle">
+                  <BiLogoLinkedin className="infoicon" />
+                </div>
+
+                <div className="infoiconcircle">
+                  <BsInstagram className="infoicon" />
+                </div>
+                <div className="infoiconcircle">
+                  <BiLogoGmail className="infoicon" />
+                </div>
+              </div>
+            </div>
+
+            <div className="teaminfo" id="hello">
+              <img src={sessions} alt="" />
+              <div className="teaminfoname">RUGVED SHINDE</div>
+              <div className="teaminfolinks">
+                <div className="infoiconcircle">
+                  <AiFillGithub className="infoicon" />
+                </div>
+                <div className="infoiconcircle">
+                  <BiLogoLinkedin className="infoicon" />
+                </div>
+
+                <div className="infoiconcircle">
+                  <BsInstagram className="infoicon" />
+                </div>
+                <div className="infoiconcircle">
+                  <BiLogoGmail className="infoicon" />
+                </div>
+              </div>
+            </div>
+
+            <div className="teaminfo" id="hello">
+              <img src={sessions} alt="" />
+              <div className="teaminfoname">RAHUL CHOUGULE</div>
+              <div className="teaminfolinks">
+                <div className="infoiconcircle">
+                  <AiFillGithub className="infoicon" />
+                </div>
+                <div className="infoiconcircle">
+                  <BiLogoLinkedin className="infoicon" />
+                </div>
+
+                <div className="infoiconcircle">
+                  <BsInstagram className="infoicon" />
+                </div>
+                <div className="infoiconcircle">
+                  <BiLogoGmail className="infoicon" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div className="footerlogo">YogaWise</div>
+        <div className="footertext">created by : </div>
+        <a href="/about">Rugved Shinde</a>
+        <a href="/about">Rahul Chougule</a>
+        <a href="/about">Amey Parle</a>
+      </footer>
+    </div>
+  );
 }
+
+export default About

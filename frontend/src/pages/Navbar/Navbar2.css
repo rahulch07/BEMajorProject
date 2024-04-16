@@ -1,0 +1,48 @@
+
+.navbar {
+    background-color: transparent;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    font-size: 1.3rem;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.aboutbtn{
+    margin-left: 2rem;
+}
+.logo{
+    font-weight: 600;
+    text-shadow:
+            -1px -1px 0 #333,
+            1px -1px 0 #333,
+            -1px 1px 0 #333,
+            1px 1px 0 #333;
+    color: #FFEA00;
+
+}
+
+.navusername{
+    font-weight: 300;
+    text-shadow:
+        -1px -1px 0 #333,
+        1px -1px 0 #333,
+        -1px 1px 0 #333,
+        1px 1px 0 #333;
+    color: white;
+
+}
+
+.rightbtns{
+    display: flex;
+
+
+}
+.navusernamemain{
+    margin-right: 2rem;
+}

@@ -1,30 +1,192 @@
-.about-container {
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(100deg, #FF8C00, #FFA500);
+.missionmain{
+    background-color: #333;
+    
 }
-.about-heading {
-    font-size: 54px;
-    text-align: center;
-    padding-top: 10px;
-    color: white;
-    font-family: 'Raleway', sans-serif;
+
+
+.missionpage{
+    padding: 8rem 4rem 4rem 4rem;
+    display: flex;
+    justify-content: center;
+
 }
-.about-main {
-    margin: auto;
-    width: 70%;
+
+
+.missionimg img{
+   width: 33rem;
+   border-radius: 20px;
+
 }
-.about-content {
-    color: white;
-    font-size: 18px;
+
+.missiontext{
+    margin-right: 2rem;
 }
-.developer-info h4 {
-    color: white;
-    font-family: 'Raleway', sans-serif;
-    margin-top: 20px;
-    text-decoration: underline;
+.headers {
+
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
 }
-.about-content a,
-.developer-info a {
- color: white;  
+
+#test {
+    background: linear-gradient(#FFEA00, #FFEA00) left no-repeat, white;
+    background-size: 0% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 1s ease-in-out;
 }
+
+#test:hover {
+    background-size: 100% 100%;
+}
+
+
+.techstackmain{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.techstackicons{
+    border-radius: 10px;
+    background-color: white;
+    padding: 5rem;
+}
+.iconsdiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon{
+    margin:1rem;
+}
+.teammain{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.techstacktext{
+
+    font-size: 4rem;
+        padding: 2rem;
+    
+        text-shadow:
+            -1px -1px 0 #FFEA00,
+            1px -1px 0 #FFEA00,
+            -1px 1px 0 #FFEA00,
+            1px 1px 0 #FFEA00;
+        color: #333;
+        font-weight: 600;
+}
+
+.teaminfo{
+    width: 23rem;
+    height:32rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    margin:1rem;
+
+
+}
+.teaminfoname{
+    padding: 2rem;
+    font-size: 2rem;
+    text-shadow:
+            -0.5px -0.5px 0 #FFEA00,
+            0.5px -0.5px 0 #FFEA00,
+            -0.5px 0.5px 0 #FFEA00,
+            0.5px 0.5px 0 #FFEA00;
+        color: #333;
+        font-weight: 600;
+}
+.teaminfomain{
+    padding: 4rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+.teaminfo img{
+    border-radius: 20px 20px 0px 0px;
+    width:100%;
+}
+.infoicon{
+    font-size: 1.7rem;
+}
+.infoiconcircle{
+    margin: 0.5rem;
+    background-color: #FFEA00;
+    border-radius: 50%;
+    padding:1rem;
+    cursor: pointer;
+}
+.teaminfolinks{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+footer {
+    height: 20rem;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerlogo {
+    margin-top: 5px;
+    font-weight: 600;
+    font-size: 3rem;
+    text-shadow:
+        -1px -1px 0 #333,
+        1px -1px 0 #333,
+        -1px 1px 0 #333,
+        1px 1px 0 #333;
+    color: #FFEA00;
+}
+
+.footertext {
+    color: white
+}
+
+
+/* .teaminfo {
+    width: 23rem;
+    height: 32rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    margin: 1rem;
+
+
+} */
+#hello {
+    
+    width: 23rem;
+        height: 32rem;
+    
+    
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+#hello:hover {
+    background-color: white;
+    box-shadow: 0px 15px 20px rgba(255, 234, 0, 0.4);
+    color: #333;
+    transform: translateY(-7px);
+}
+
