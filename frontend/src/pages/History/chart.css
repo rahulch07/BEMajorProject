@@ -1,0 +1,19 @@
+.headers {
+
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#test {
+    background: linear-gradient(#FFEA00, #FFEA00) left no-repeat, white;
+    background-size: 0% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 1s ease-in-out;
+}
+
+#test:hover {
+    background-size: 100% 100%;
+}

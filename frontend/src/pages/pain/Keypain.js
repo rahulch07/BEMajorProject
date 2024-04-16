@@ -10,6 +10,7 @@ import { drawPoint, drawSegment } from "../../utils/helper";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { painState } from "../../store/atom/currentpain";
 import Startpose from "./Startpose";
+import api from "../../components/services/api";
 
 import "./Startpose.css";
 import { currentposeState } from "../../store/atom/currentpose";
@@ -20,6 +21,7 @@ let interval;
 
 const countAudio = new Audio(count);
 let flag = false;
+let timeToStore =0;
 
 function Keypain() {
   const pain = useRecoilValue(painState);
@@ -33,6 +35,7 @@ function Keypain() {
   const [isStartPose, setIsStartPose] = useState(false);
   const [isPoseCorrect, setisPoseCorrect] = useState(false);
   const [currentposeIndex, setcurrentposeIndex] = useState(0);
+  const [poseTransition, setPoseTransition] = useState(false);
   let poseList = pain.poseList;
   //let currentpose=pose.currentPose;
   let currentpose = poseList[currentposeIndex];
@@ -55,20 +58,55 @@ function Keypain() {
     }
   }, [isPoseCorrect, currentposeIndex]);
 
+  const formData = {
+    username: localStorage.getItem("userName"),
+    pose: currentpose,
+    time: timeToStore,
+    date: new Date() // Current date in 'YYYY-MM-DD' format
+  };
+
+  const handleSubmit = async () => {
+    //e.preventDefault();
+    try {
+      await api.post('/users/historyStore', formData);
+      alert('History stored successfully');
+      // Optionally, clear the form after successful submission
+      // setFormData({
+      //   username: '',
+      //   pose: '',
+      //   time: 0,
+      //   date: new Date().toISOString().slice(0, 10)
+      //});
+    } catch (error) {
+      console.error('Failed to store history', error);
+      alert('Failed to store history. Please try again.');
+    }
+  };
+
   useEffect(() => {
     let timeDiff = (currentTime - startingTime) / 1000;
+    timeToStore = timeDiff;
     if (flag) {
       console.log(currentTime, "-", startingTime);
       setPoseTime(timeDiff);
-      if (timeDiff >= 15) {
-        setcurrentposeIndex((prev) => {
-          return prev + 1;
-        });
-        stopPose();
-        setisPoseCorrect(true);
-      }
+      // if (timeDiff >= 15) {
+        
+      //   //handleSubmit();
+      //   setcurrentposeIndex((prev) =>  prev + 1);
+      //   stopPose();
+        
+      //   setisPoseCorrect(true);
+      // }
     }
   }, [currentTime]);
+
+  function changingPose(){
+    handleSubmit();
+    setPoseTransition(false);
+    setcurrentposeIndex((prev) =>  prev + 1);
+    stopPose();
+    setisPoseCorrect(true);
+  }
 
   const CLASS_NO = {
     Crescent:0,
@@ -222,7 +260,7 @@ function Keypain() {
           //console.log(classNo);
           //console.log(data[0])
           //console.log(data[0][classNo])
-          if (data[0][classNo] > 0.05) {
+          if (data[0][classNo] > 0.70) {
             if (!flag) {
               countAudio.play();
               setStartingTime(new Date(Date()).getTime());
@@ -232,6 +270,11 @@ function Keypain() {
             skeletonColor = "rgb(0,255,0)";
           } else {
             flag = false;
+            if(timeToStore>=15){
+             
+              setPoseTransition(true);
+              setTimeout(changingPose,3000);
+            }
             skeletonColor = "rgb(255,255,255)";
             countAudio.pause();
             countAudio.currentTime = 0;
@@ -253,7 +296,7 @@ function Keypain() {
     clearInterval(interval);
   } 
   
-  if (isStartPose) {
+  if (isStartPose && !poseTransition) {
     return (
       <div className="yoga-container" style={{position: 'relative', top:'20px'}}>
         <div className="performance-container">
@@ -297,6 +340,12 @@ function Keypain() {
           <Infopopup currentpose={currentpose} />
         </div>
       </div>
+    );
+  }
+
+  if(poseTransition){
+    return(
+      <div>Loading...</div>
     );
   }
 

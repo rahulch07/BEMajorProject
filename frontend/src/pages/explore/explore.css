@@ -1,0 +1,263 @@
+.explore-heading {
+    text-align: center;
+    padding-top: 20px;
+    font-weight: 700;
+    font-size:4rem;
+    text-shadow: 
+    -1px -1px 0 #333,
+    1px -1px 0 #333,
+    -1px 1px 0 #333,
+    1px 1px 0 #333;
+    color: #FFEA00;
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
+    font-family: 'Nunito Sans', sans-serif;
+   
+
+  }
+
+  .exploregrid{
+    
+    border-radius: 20px;
+    width: 100%;
+  }
+  .exploremain{
+    background-color: #333;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+  }
+
+ 
+  
+  .tiles-container {
+    padding: 150px;
+    padding-top: 20px;
+  }
+  
+  .tile {
+   padding: 20px;
+   margin: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    height: 190px;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  
+  .tile-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 0 0 10px 10px;
+    z-index: 1;
+    text-align: center;
+  }
+  
+  .tile-text {
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .breathing-section {
+    border-radius: 20px;
+    padding-top: 350px;
+    padding-bottom: 350px;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+    url(https://static.vecteezy.com/system/resources/previews/027/104/079/large_2x/woman-practicing-mantra-yoga-meditation-outdoors-on-the-beach-at-sunset-achieving-peaceful-relaxation-and-spiritual-well-being-free-photo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  
+  .breathing-content {
+    position: absolute;
+    top: 120px;
+    left: 200px;
+    font-family: 'Playfair Display', serif;
+    color: #ffffff;
+  }
+  
+  .breathing-content h1 {
+    font-size: 50px;
+    font-weight: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+  }
+  
+  .breathing-content h3 {
+    margin-top: 50px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* .benefits-section {
+    /* background-image: url('https://images.shiksha.com/mediadata/images/articles/1689079450php3qZVMP.jpeg'); */
+    /* height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+   
+
+  }
+  
+  .benefits-content {
+    /* position: absolute; */
+    /* top: 50px;
+    left: 50px; */
+    /* font-family: 'Playfair Display', serif;
+    color: #ffffff; */
+  /* }
+  
+  .benefits-content h1 {
+    font-size: 50px;
+    font-weight: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .benefits-content h3 {
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }*/
+  
+  .tile-modal {
+    
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .modal-content {
+    background-color: #333;
+    width: 800px;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+   
+    
+  }
+  
+  .modal-text {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #333;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  
+  .modal-gif {
+    margin-left: 1rem;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: #FFEA00;
+  }
+  .modal-gif img{
+    width: 100%;
+  }
+
+  
+  .close-button {
+    position: absolute;
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 50%;
+    top: -10px;
+    right: -30px;
+  }
+
+  .headers {
+
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.modal-gif h3{
+
+    font-size: 3rem;
+    font-weight: 700;
+    padding-top: 20px;
+    color: #333;
+    opacity: 0; /* Start with opacity 0 */
+  transform: translateX(-100%); /* Start position outside the viewport */
+  animation: slideIn 0.5s ease-in-out forwards; /* Apply slide-in animation */
+  overflow:hidden
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0; /* Start from opacity 0 */
+    transform: translateX(-100%); /* Start from left outside the viewport */
+  }
+  to {
+    opacity: 1; /* Fade in to opacity 1 */
+    transform: translateX(0); /* Slide in to the original position */
+  }
+}
+
+#test {
+    background: linear-gradient(#FFEA00, #FFEA00) left no-repeat, white;
+    background-size: 0% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 1s ease-in-out;
+}
+
+#test:hover {
+    background-size: 100% 100%;
+}
+  
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: rgba(51, 51, 51, 0.103); /* Adjust alpha value to make it semi-transparent */
+}
+
+*::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #333;
+}
+
+*::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #FFEA00;
+}
+
+/* 
+*::-webkit-scrollbar-track {
+  background: #090101;
+  border-radius: 10px;
+  opacity: 0.8;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #fbff0f;
+  border-radius: 10px;
+  
+} */
