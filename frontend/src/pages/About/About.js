@@ -1,6 +1,6 @@
 import React from 'react'
 import image from "../../utils/images/missionimg.jpg"
-import StackIcon from "tech-stack-icons";
+//import StackIcon from "tech-stack-icons";
 import sessions from "../../utils/images/sessions.jpg"
 import { AiFillGithub } from "react-icons/ai";
 import { BiLogoLinkedin } from "react-icons/bi";
@@ -33,13 +33,13 @@ const About = () => {
         <div className="techstacktext"> TECH STACK</div>
         <div className="techstackicons">
           <div className="iconsdiv">
-            <StackIcon className="icon" name="reactjs" />
+            {/* <StackIcon className="icon" name="reactjs" />
             <StackIcon className="icon" name="nodejs" />
             <StackIcon className="icon" name="html5" />
             <StackIcon className="icon" name="css3" />
             <StackIcon className="icon" name="materialui" />
             <StackIcon className="icon" name="mongodb" />
-            <StackIcon className="icon" name="python" />
+            <StackIcon className="icon" name="python" /> */}
           </div>
         </div>
       </div>
