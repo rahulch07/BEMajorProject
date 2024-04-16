@@ -19,6 +19,7 @@ import Pain from './pages/pain/Rootpain'
 import Keypain from './pages/pain/Keypain'
 import Choice from './pages/pain/choice'
 import Footer from './pages/Footer/footer'
+import Explore from './pages/explore/explore'
 
 //import Login from './components/Login'
 
@@ -40,9 +41,10 @@ export default function App() {
         <Route path='/pain' element={<Pain />}/>
         <Route path='/keypain' element={<Keypain />} />
         <Route path='/choice' element={<Choice />} />
+        <Route path='/explore' element={<Explore />} />
       </Routes>
     </Router>
-    <Footer/>
+   
     </RecoilRoot>
     </div>
   )
